@@ -4,8 +4,6 @@ def sieve(n):
     for num in range(2, n + 1):
         if not marked[num]:
             out.append(num)
-            multiplier = 2
-            while num * multiplier <= n:
-                marked[num * multiplier] = True
-                multiplier += 1
+            for i in range(num * 2, n + 1, num):
+                marked[i] = True
     return out
